@@ -145,6 +145,11 @@ tbody tr:hover{
 }
 
 @media (max-width: 400px) {
+    
+    #enca{
+
+        overflow: hidden;
+    }
 
     #pagina{
         width:100%;
