@@ -64,24 +64,24 @@ $(document).ready(function () {
                 "<td class='eliminar' post='" + tmp.id + "'>Eliminar</td>");
         $("#ListaTabla").append(estr);
     }
-    
+
     var itemLocal;
     function asigEliminar() {
         $(".eliminar").click(function () {
             itemLocal = $(this);
             if (confirm("esta seguro de eliminar")) {
-                var url="Controller/Proveedor/delProveedor.php";
-                var parametros = "id="+$(this).attr("post");
-                var metodo=function(datos){
+                var url = "Controller/Proveedor/delProveedor.php";
+                var parametros = "id=" + $(this).attr("post");
+                var metodo = function (datos) {
                     var data = $.parseJSON(datos);
-                        if (data.sucess == "ok") {
-                            alert("El proveedor fue Elimiando");
-                            itemLocal.parent().remove();
-                        } else {
-                            alert("Hay regsitro dependientes en el sistema\n Comuniquese con el administrador");
-                        }
+                    if (data.sucess == "ok") {
+                        alert("El proveedor fue Elimiando");
+                        itemLocal.parent().remove();
+                    } else {
+                        alert("Hay regsitro dependientes en el sistema\n Comuniquese con el administrador");
+                    }
                 };
-                fajax(url,parametros,metodo);
+                fajax(url, parametros, metodo);
             }
         });
     }
