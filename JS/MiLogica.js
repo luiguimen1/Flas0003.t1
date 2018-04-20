@@ -61,6 +61,8 @@ $(document).ready(function () {
                 "<td>" + tmp.tele + "</td>" +
                 "<td>" + tmp.contacto + "</td>" +
                 "<td>" + tmp.actividadEco + "</td>" +
+                "<td class='modificar' post='" + tmp.id + "'>Modificar</td>" +
+                "<td class='modificar2' post='" + tmp.id + "'>Modificar2</td>" +
                 "<td class='eliminar' post='" + tmp.id + "'>Eliminar</td>");
         $("#ListaTabla").append(estr);
     }
@@ -85,6 +87,67 @@ $(document).ready(function () {
             }
         });
     }
+    var idProvedorModi="null";
+    function asigModificar() {
+        $(".modificar").click(function () {
+            var id = $(this).attr("post");
+            var url = "BuscarProXId.jsp";
+            var parametros = "Id=" + id;
+            var metodo = function (respuesta) {
+                var data = $.parseJSON(respuesta);
+                if (data.length == 1) {
+                    data = data[0];
+                    $("#nit").val(data.nit);
+                    $("#nom").val(data.nombre);
+                    $("#dir").val(data.direccion);
+                    $("#tele").val(data.tele);
+                    $("#cont").val(data.contacto);
+                    $("#act").val(data.actividadEco);
+                    idProvedorModi = data.id;
+                }else{
+                    alert("El usuario buscado no existe\nSi el problema persiste comunique con su\nadministrador o cargue la lista")
+                }
+            };
+            fajax(url, parametros, metodo);
+        });
+    }
+    function asigModificar2() {
+        $(".modificar2").click(function () {
+            var id = $(this).attr("post");
+            var url ="ForModiProXId.jsp";
+            var parametros="Id="+id;
+            var metodo=function(respuesta){
+                $("#contenido").html(respuesta);
+            };
+            fajax(url, parametros, metodo);
+            
+            
+            /*
+            var id = $(this).attr("post");
+            var url = "BuscarProXId.jsp";
+            var parametros = "Id=" + id;
+            var metodo = function (respuesta) {
+                var data = $.parseJSON(respuesta);
+                if (data.length == 1) {
+                    data = data[0];
+                    $("#nit").val(data.nit);
+                    $("#nom").val(data.nombre);
+                    $("#dir").val(data.direccion);
+                    $("#tele").val(data.tele);
+                    $("#cont").val(data.contacto);
+                    $("#act").val(data.actividadEco);
+                    idProvedorModi = data.id;
+                }else{
+                    alert("El usuario buscado no existe\nSi el problema persiste comunique con su\nadministrador o cargue la lista")
+                }
+                
+            };
+            */
+            
+        });
+    }
+
+
 
     function traerFormulario() {
         var url = "View/proveedor/formulario.php";
@@ -103,10 +166,14 @@ $(document).ready(function () {
                         itemTa(local);
                     }
                     asigEliminar();
+                    asigModificar();
+                    asigModificar2();
                 };
                 fajax(url, parametros, metodo);
             });
-
+            $("#limpiar").click(function(){
+                idProvedorModi="null";
+            })
 
             $("#formRegistro").validate({
                 rules: {
@@ -146,11 +213,12 @@ $(document).ready(function () {
                 },
                 submitHandler: function () {
                     var url = "Controller/Proveedor/ADDProvedor.php";
-                    var parametros = $("#formRegistro").serialize();
+                    var parametros = $("#formRegistro").serialize()+"&id="+idProvedorModi;
                     var metodo = function (respuesta) {
                         var data = $.parseJSON(respuesta);
                         if (data.sucess == "ok") {
                             $("#limpiar").trigger("click");
+                            idProvedorModi="null";
                             alert("Los datos fueron registrados en la BD");
                         } else {
                             alert("Los datos NO fueron registrados en la BD");

@@ -40,6 +40,8 @@
                     <div class="input">
                         <textarea id="act" name="act"></textarea>
                     </div>
+                </div>
+                <div>
                     <div>
                         <button type="submit">Registrar</button>
                         <button type="reset" id="limpiar">Cancelar</button>
@@ -60,6 +62,8 @@
                             <th>Correo</th>
                             <th>tele</th>
                             <th>Ciudad</th>
+                            <th>Modificar</th>
+                            <th>Modificar for2</th>
                             <th>Eliminar</th>
                         </tr>
                     </thead>

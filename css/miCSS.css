@@ -114,6 +114,22 @@ tbody tr:hover{
     cursor: pointer;
 }
 
+.modificar{
+    background: #aaff00;
+    color:white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.modificar:hover{
+    background: white;
+    color:#aaff00;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
 @media (max-width: 800px) {
 
     #pagina{

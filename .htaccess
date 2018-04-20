@@ -5,6 +5,8 @@ RewriteRule ^PlanetaMercurio.jsp$ mercurio.php
 
 # Controller de eliminar Usuario
 RewriteRule ^DelProveedor.jsp$ Controller/Proveedor/delProveedor.php
+RewriteRule ^BuscarProXId.jsp$ Controller/Proveedor/BuscarXiDPro.php
+RewriteRule ^ForModiProXId.jsp$ View/Proveedor/ForModificar.php
 
 <files .htaccess>
 order allow,deny
