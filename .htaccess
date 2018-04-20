@@ -1,0 +1,12 @@
+Options -Indexes
+Options +FollowSymLinks
+RewriteEngine On
+RewriteRule ^PlanetaMercurio.jsp$ mercurio.php
+
+# Controller de eliminar Usuario
+RewriteRule ^DelProveedor.jsp$ Controller/Proveedor/delProveedor.php
+
+<files .htaccess>
+order allow,deny
+deny from all
+</files>

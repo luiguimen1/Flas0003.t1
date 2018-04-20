@@ -23,7 +23,6 @@
                         <input type="text" id="dir" name="dir" value=""/>
                     </div>
                 </div>
-
                 <div class="COL-12">
                     <div class="label">Telefono</div>
                     <div class="input">
@@ -65,7 +64,6 @@
                         </tr>
                     </thead>
                     <tbody id="ListaTabla">
-
                     </tbody>
                 </table>
             </div>

@@ -35,7 +35,7 @@ $(document).ready(function () {
      * @return {undefined}
      */
     function traerMercurio() {
-        var url = "mercurio.php";
+        var url = "PlanetaMercurio.jsp";
         var parametros = "acceso=true";
         var metodo = function (rrt) {
             $("#contenido").html(rrt);
@@ -70,7 +70,7 @@ $(document).ready(function () {
         $(".eliminar").click(function () {
             itemLocal = $(this);
             if (confirm("esta seguro de eliminar")) {
-                var url = "Controller/Proveedor/delProveedor.php";
+                var url = "DelProveedor.jsp";
                 var parametros = "id=" + $(this).attr("post");
                 var metodo = function (datos) {
                     var data = $.parseJSON(datos);
