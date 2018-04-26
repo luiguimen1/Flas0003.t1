@@ -8,6 +8,9 @@ RewriteRule ^DelProveedor.jsp$ Controller/Proveedor/delProveedor.php
 RewriteRule ^BuscarProXId.jsp$ Controller/Proveedor/BuscarXiDPro.php
 RewriteRule ^ForModiProXId.jsp$ View/Proveedor/ForModificar.php
 
+RewriteRule ^generarTabla$ Controller/Proveedor/generarTabla.php
+
+
 <files .htaccess>
 order allow,deny
 deny from all
