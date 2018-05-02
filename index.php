@@ -22,7 +22,8 @@ $miGato->setNombre("Felix el gato");
     <body>
         <div id="pagina">
             <div id="enca">
-                <center><h1>Sistemas de Información</h1></center>	
+                <center><h1>Sistemas de Información</h1></center>
+                <?php echo md5(time());?>
             </div>
             <div id="contec">
                 <div id="menu" class="degRojo">

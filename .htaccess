@@ -9,6 +9,11 @@ RewriteRule ^BuscarProXId.jsp$ Controller/Proveedor/BuscarXiDPro.php
 RewriteRule ^ForModiProXId.jsp$ View/Proveedor/ForModificar.php
 
 RewriteRule ^generarTabla$ Controller/Proveedor/generarTabla.php
+RewriteRule ^SubirFoto$ Controller/cargarFoto/UnLoadFoto.php
+
+
+RewriteRule ^ADDProducto$ Controller/producto/add.php
+RewriteRule ^LisProXCat$ Controller/producto/BuscarXCat.php
 
 
 <files .htaccess>
