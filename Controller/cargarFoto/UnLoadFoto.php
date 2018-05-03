@@ -1,4 +1,5 @@
 <?php
+
 require '../../Class/BD/datos.php';
 require '../../Class/BD/MySQLi.php';
 require '../../Class/DAO/ProductoDAO.php';
@@ -13,15 +14,14 @@ $Local = json_decode($json);
 $Local->POST = json_encode($_POST);
 
 $post = json_decode($Local->POST);
-$post->nombre = time().".jpg";
-
+$post->nombre = time() . ".jpg";
+$data = array();
 $ProductoDAO = new ProductoDAO();
-if($ProductoDAO->fotoXId($post)){
+if ($ProductoDAO->fotoXId($post)) {
     move_uploaded_file($_FILES["ionicfile"]["tmp_name"], "../../img/" . $post->nombre);
-    echo $post->nombre;
-}else{
-    echo "no";
+    $data['sucess'] = $post->nombre;
+    $data['file'] = json_encode($_FILES);
+} else {
+    $data['sucess'] = "no";
 }
-
-
-
+echo json_encode($data);

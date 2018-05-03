@@ -173,7 +173,7 @@ $(document).ready(function () {
             });
             $("#limpiar").click(function(){
                 idProvedorModi="null";
-            })
+            });
 
             $("#formRegistro").validate({
                 rules: {
